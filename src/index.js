@@ -1,46 +1,44 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+
+import Layout from "./pages/layout";
+import Home from "./pages/home";
+import FicheLogements from "./pages/fiche-logements";
+import APropos from "./pages/a-propos";
+import NotFound from "./pages/404";
 
 import "./index.css";
 
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Template from "./layout/template";
-import NotFound from "./pages/notFound";
-import App from "./App";
-import FicheLogements from "./pages/ficheLogements";
-import APropos from "./pages/aPropos";
-
 import reportWebVitals from "./reportWebVitals";
 
+const baseURL = "/fiche-logement/";
+
 const router = createBrowserRouter([
-  {
-    element: <Template />,
-    errorElement: <NotFound />,
-    children: [
-      {
-        path: "/",
-        element: <App />,
-      },
-      {
-        path: "/fiche-logement/:logementId",
-        element: <FicheLogements />,
-      },
-      {
-        path: "/a-propos",
-        element: <APropos />,
-      }
-    ]
-  },
+	{
+		element: <Layout />,
+		errorElement: <NotFound />,
+		children: [
+			{
+				path: "/",
+				element: <Home baseURL={baseURL}/>,
+			},
+			{
+				path: `${baseURL}:logementId`,
+				element: <FicheLogements />,
+			},
+			{
+				path: "/a-propos",
+				element: <APropos />,
+			},
+		],
+	},
 ]);
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
-  <React.StrictMode>
-    <RouterProvider router={router} />
-  </React.StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+	<React.StrictMode>
+		<RouterProvider router={router} />
+	</React.StrictMode>,
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
