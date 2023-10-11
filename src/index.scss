@@ -1,3 +1,4 @@
+// ---------- DESKTOP CONTENT ----------
 * {
   font-family: "Montserrat";
   font-weight: 400;
@@ -7,17 +8,19 @@
 }
 
 h1 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 2rem;
 }
 
 h2 {
-  font-weight: 500;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.25rem;
 }
 
 a {
+  font-weight: 500;
   text-decoration: none;
+  transition: 0.5s;
 
   &:hover {
     text-decoration: underline;
@@ -35,12 +38,13 @@ div#root {
   }
 }
 
+// ---------- header ----------
 header#header {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 60px 15px 60px;
+  padding: 15px 60px;
 
   img {
     height: 50px;
@@ -58,233 +62,230 @@ header#header {
   }
 }
 
-.first-banniere {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  img {
-    height: 200px;
-    width: 100%;
-    border-radius: 15px;
-    object-fit: cover;
-    filter: brightness(0.5);
-  }
-
-  h1 {
-    color: white;
-    position: absolute;
-
-  }
-}
-
+// ---------- main ----------
 main {
   display: flex;
   flex-direction: column;
   gap: 60px;
-}
 
-section.housing-cards {
-  background-color: #E6E6E6;
-  border-radius: 15px;
-  display: grid;
-  grid-auto-flow: row;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 30px;
-  padding: 30px;
-
-  a {
+  >.first-banner {
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    aspect-ratio: 1/1;
-    position: relative;
-    border-radius: 15px;
-    overflow: hidden;
-
-    img {
-      background-size: cover;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    h2 {
-      color: white;
-      position: absolute;
-      padding: 15px;
-    }
-  }
-
-  a::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-image: linear-gradient(to bottom, #00000000, rgba(0, 0, 0, 0.75));
-  }
-}
-
-article#presentation-logement {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-
-  >div:first-child {
-    width: 100%;
-    height: 350px;
-    overflow: hidden;
-    border-radius: 15px;
+    align-items: center;
+    justify-content: center;
     position: relative;
 
     >img {
+      height: 200px;
       width: 100%;
-      height: 350px;
+      border-radius: 15px;
       object-fit: cover;
-      object-position: center;
+      filter: brightness(0.5);
     }
 
-    >div {
+    >h1 {
+      color: white;
+      position: absolute;
+    }
+  }
+
+  >section.housing-cards {
+    background-color: #E6E6E6;
+    border-radius: 15px;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+    padding: 30px;
+
+    >a {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      aspect-ratio: 1/1;
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+
+      >img {
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      >h2 {
+        color: white;
+        position: absolute;
+        padding: 15px;
+      }
+    }
+
+    a::before {
+      content: "";
       position: absolute;
       width: 100%;
       height: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 15px;
-      box-sizing: border-box;
+      background-image: linear-gradient(to bottom, #00000000, rgba(0, 0, 0, 0.75));
+    }
+  }
 
-      .fa-chevron-left,
-      .fa-chevron-right {
-        font-weight: 900;
-        font-size: 50px;
-        color: white;
-        cursor: pointer;
+  article#presentation-logement {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+
+    >div#carrousel-pictures {
+      width: 100%;
+      max-height: 350px;
+      overflow: hidden;
+      border-radius: 15px;
+      position: relative;
+
+      >img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        object-position: center;
+      }
+
+      >div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 15px;
+        box-sizing: border-box;
+
+        .fa-chevron-left,
+        .fa-chevron-right {
+          font-size: 50px;
+          color: white;
+          cursor: pointer;
+        }
       }
     }
 
-  }
-
-  >div {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-
-    div#context-logement {
+    >div#informations-logement {
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      gap: 15px;
 
-      div#identifiants-logement {
+      >div:nth-child(1) {
         display: flex;
-        flex-direction: column;
-        gap: 10px;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
 
-        h2 {
-          font-size: 2rem;
-        }
-
-        div#boutons-logements {
+        >div:nth-child(1) {
           display: flex;
-          flex-direction: row;
+          flex-direction: column;
           gap: 10px;
 
-          button {
-            background-color: #FF6060;
-            color: white;
-            border: none;
-            padding: 5px 30px;
-            border-radius: 15px;
+          >h2 {
+            font-size: 1.5rem;
           }
-        }
 
-      }
+          >div {
+            display: flex;
+            flex-direction: row;
+            gap: 15px;
 
-      div#identification-review-logement {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-
-        div#proprietaire-logement {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          gap: 10px;
-
-          div {
-            width: 65px;
-            height: 65px;
-            border-radius: 100%;
-            overflow: hidden;
-
-            img {
-              width: 100%;
-              height: 100%;
+            >button {
+              background-color: #FF6060;
+              color: white;
+              border: none;
+              padding: 5px 20px;
+              border-radius: 15px;
             }
           }
         }
 
-        div#review-logement {
+        >div:nth-child(2) {
           display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
+          flex-direction: column;
+          gap: 15px;
+
+          >div:nth-child(1) {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 15px;
+
+            >div {
+              width: 65px;
+              height: 65px;
+              border-radius: 100%;
+              overflow: hidden;
+
+              >img {
+                width: 100%;
+                height: 100%;
+              }
+            }
+          }
+
+          >div#housing-reviews {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+          }
         }
       }
     }
+  }
 
+  div#display-others-informations {
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    align-items: flex-start;
 
-    div#information-logement {
-      display: flex;
-      flex-direction: row;
-      gap: 60px;
-      align-items: flex-start;
+    * {
+      color: white;
+    }
 
-      * {
-        color: white;
+    .box-information {
+      background-color: #FF6060;
+      border-radius: 10px;
+      padding: 15px;
+      width: 50%;
+      cursor: pointer;
+
+      >div:first-child {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
       }
 
-      .box-information {
-        background-color: #FF6060;
-        border-radius: 15px;
-        padding: 15px;
-        width: 50%;
-
-        > div:first-child {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        > *:nth-child(2) {
+      >*:nth-child(2) {
         margin-top: 15px;
-        }
       }
     }
   }
 }
 
+// ---------- footer ----------
 footer#footer {
   background-color: black;
-  padding: 30px 60px 15px 60px;
+  padding: 30px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 
-  img {
-    height: 30px;
+  * {
+    color: white;
   }
 
-  p {
-    color: white;
+  img {
+    height: 25px;
   }
 }
 
+// ---------- RESPONSIVE CONTENT ----------
 @media (max-width: 1023px) {
   h1 {
     font-size: 1.5rem;
@@ -296,93 +297,132 @@ footer#footer {
     >* {
       padding: 0 15px;
     }
-  }
 
-  header#header {
-    gap: 30px;
-    padding: 15px;
 
-    img {
-      height: 30px;
-    }
-  }
-
-  .first-banniere {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-
-    img {
-      height: 115px;
-    }
-
-    h1 {
-      font-size: 1.5rem;
-      padding: 0 15% 0 5%;
-    }
-  }
-
-  section.housing-cards {
-    grid-template-columns: 1fr;
-    padding: 0;
-    background-color: initial;
-  }
-
-  article#presentation-logement {
-    div :first-child {
-      aspect-ratio: 1/1;
-      object-fit: cover;
-      object-position: center;
-      width: initial;
-      min-height: initial;
+    // ---------- header ----------
+    >header#header {
+      gap: 30px;
+      padding: 15px;
 
       img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: center;
+        height: 30px;
       }
+    }
 
-      div {
-        position: absolute;
-        width: 100%;
-        height: 100%;
+    // ---------- main ----------
+    main {
+      >.first-banner {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        padding: 0 15px;
-        box-sizing: border-box;
+        justify-content: flex-start;
 
-        i {
-          color: white;
-          font-size: 50px;
+        >img {
+          height: 150px;
+        }
+
+        >h1 {
+          font-size: 1.5rem;
+          padding: 0 15% 0 5%;
+        }
+      }
+
+      >section.housing-cards {
+        grid-template-columns: 1fr;
+        padding: 0;
+        background-color: initial;
+      }
+
+      >article#presentation-logement {
+        gap: 30px;
+
+        >div#carrousel-pictures {
+          aspect-ratio: 1/1;
+          object-fit: cover;
+          object-position: center;
+          width: initial;
+          min-height: initial;
+
+          >div:nth-child(1) {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+            box-sizing: border-box;
+
+            i {
+              color: white;
+              font-size: 33px;
+            }
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+
+        >div#informations-logement {
+          >div:nth-child(1) {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+
+            >div {
+              flex-direction: column;
+              width: 100%;
+
+              >div {
+                flex-direction: column;
+              }
+            }
+
+            >div:nth-child(2) {
+              display: flex;
+              flex-direction: row-reverse;
+              width: 100%;
+              justify-content: space-between;
+              align-items: center;
+
+              >div:nth-child(1) {
+              flex-direction: row;
+
+              div {
+                width: 40px;
+                height: 40px;
+              }
+
+              >div#housing-reviews {
+                gap: 5px;
+              }
+            }
+            }
+          }
+
+          div#display-others-informations {
+            flex-direction: column;
+            gap: 30px;
+
+            >.box-information {
+              width: calc(100% - 30px);
+            }
+          }
         }
       }
     }
 
-    >div {
-      div#context-logement {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
+    // ---------- footer ----------
+    footer#footer {
+      padding: 40px 80px;
+      gap: 15px;
 
-        div#identifiants-logement div#boutons-logements {
-          flex-direction: column;
-        }
+      >p {
+        text-align: center;
       }
-
-      div#information-logement {
-        flex-direction: column;
-      }
-    }
-  }
-
-  footer#footer {
-    padding: 40px 80px;
-    gap: 15px;
-
-    p {
-      text-align: center;
     }
   }
 }

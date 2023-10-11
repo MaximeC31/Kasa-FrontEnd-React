@@ -1,7 +1,7 @@
 import React from "react";
 
-function APropos() {
+function About() {
 	return <h1>Page à propos</h1>;
 }
 
-export default APropos;
+export default About;

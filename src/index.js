@@ -1,16 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
 
 import Layout from "./pages/layout";
-import Home from "./pages/home";
-import FicheLogements from "./pages/fiche-logements";
-import APropos from "./pages/a-propos";
-import NotFound from "./pages/404";
+import AllHousing from "./pages/all-housing";
+import SingleRental from "./pages/single-rental";
+import About from "./pages/about";
+import NotFound from "./pages/404-not-found";
 
 import "./index.css";
-
-import reportWebVitals from "./reportWebVitals";
 
 const baseURL = "/fiche-logement/";
 
@@ -21,15 +20,15 @@ const router = createBrowserRouter([
 		children: [
 			{
 				path: "/",
-				element: <Home baseURL={baseURL}/>,
+				element: <AllHousing baseURL={baseURL} />,
 			},
 			{
 				path: `${baseURL}:logementId`,
-				element: <FicheLogements />,
+				element: <SingleRental />,
 			},
 			{
 				path: "/a-propos",
-				element: <APropos />,
+				element: <About />,
 			},
 		],
 	},

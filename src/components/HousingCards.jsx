@@ -1,9 +1,9 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import HousingJSON from "../assets/data/logements.json";
+import HousingJSON from "../assets/data/housing.json";
 
-function HousingCards({baseURL}) {
+function HousingCards({ baseURL }) {
 	return (
 		<section className="housing-cards">
 			{HousingJSON.map((house, index) => (

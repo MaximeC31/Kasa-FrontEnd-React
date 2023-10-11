@@ -7,17 +7,19 @@
 }
 
 h1 {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 2rem;
 }
 
 h2 {
-  font-weight: 500;
-  font-size: 1.2rem;
+  font-weight: 600;
+  font-size: 1.25rem;
 }
 
 a {
+  font-weight: 500;
   text-decoration: none;
+  transition: 0.5s;
 }
 a:hover {
   text-decoration: underline;
@@ -38,7 +40,7 @@ header#header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 60px 15px 60px;
+  padding: 15px 60px;
 }
 header#header img {
   height: 50px;
@@ -53,12 +55,18 @@ header#header nav ul li {
   list-style: none;
 }
 
-.first-banniere {
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+main > .first-banner {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
-.first-banniere img {
+main > .first-banner > img {
   height: 200px;
   width: 100%;
   border-radius: 15px;
@@ -66,18 +74,11 @@ header#header nav ul li {
      object-fit: cover;
   filter: brightness(0.5);
 }
-.first-banniere h1 {
+main > .first-banner > h1 {
   color: white;
   position: absolute;
 }
-
-main {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-}
-
-section.housing-cards {
+main > section.housing-cards {
   background-color: #E6E6E6;
   border-radius: 15px;
   display: grid;
@@ -86,51 +87,47 @@ section.housing-cards {
   grid-gap: 30px;
   padding: 30px;
 }
-section.housing-cards a {
+main > section.housing-cards > a {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  align-items: flex-start;
   aspect-ratio: 1/1;
   position: relative;
   border-radius: 15px;
   overflow: hidden;
 }
-section.housing-cards a img {
-  background-size: cover;
-  width: 100%;
+main > section.housing-cards > a > img {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
   -o-object-position: center;
      object-position: center;
 }
-section.housing-cards a h2 {
+main > section.housing-cards > a > h2 {
   color: white;
   position: absolute;
   padding: 15px;
 }
-section.housing-cards a::before {
+main > section.housing-cards a::before {
   content: "";
   position: absolute;
   width: 100%;
   height: 100%;
   background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75));
 }
-
-article#presentation-logement {
+main article#presentation-logement {
   display: flex;
   flex-direction: column;
   gap: 60px;
 }
-article#presentation-logement > div:first-child {
+main article#presentation-logement > div#carrousel-pictures {
   width: 100%;
-  height: 350px;
+  max-height: 350px;
   overflow: hidden;
   border-radius: 15px;
   position: relative;
 }
-article#presentation-logement > div:first-child > img {
+main article#presentation-logement > div#carrousel-pictures > img {
   width: 100%;
   height: 350px;
   -o-object-fit: cover;
@@ -138,7 +135,7 @@ article#presentation-logement > div:first-child > img {
   -o-object-position: center;
      object-position: center;
 }
-article#presentation-logement > div:first-child > div {
+main article#presentation-logement > div#carrousel-pictures > div {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -148,109 +145,109 @@ article#presentation-logement > div:first-child > div {
   padding: 0 15px;
   box-sizing: border-box;
 }
-article#presentation-logement > div:first-child > div .fa-chevron-left,
-article#presentation-logement > div:first-child > div .fa-chevron-right {
-  font-weight: 900;
+main article#presentation-logement > div#carrousel-pictures > div .fa-chevron-left,
+main article#presentation-logement > div#carrousel-pictures > div .fa-chevron-right {
   font-size: 50px;
   color: white;
   cursor: pointer;
 }
-article#presentation-logement > div {
+main article#presentation-logement > div#informations-logement {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-article#presentation-logement > div div#context-logement {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-article#presentation-logement > div div#context-logement div#identifiants-logement {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
-article#presentation-logement > div div#context-logement div#identifiants-logement h2 {
-  font-size: 2rem;
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) > h2 {
+  font-size: 1.5rem;
 }
-article#presentation-logement > div div#context-logement div#identifiants-logement div#boutons-logements {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) > div {
   display: flex;
   flex-direction: row;
-  gap: 10px;
+  gap: 15px;
 }
-article#presentation-logement > div div#context-logement div#identifiants-logement div#boutons-logements button {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) > div > button {
   background-color: #FF6060;
   color: white;
   border: none;
-  padding: 5px 30px;
+  padding: 5px 20px;
   border-radius: 15px;
 }
-article#presentation-logement > div div#context-logement div#identification-review-logement {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
-article#presentation-logement > div div#context-logement div#identification-review-logement div#proprietaire-logement {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 15px;
 }
-article#presentation-logement > div div#context-logement div#identification-review-logement div#proprietaire-logement div {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div {
   width: 65px;
   height: 65px;
   border-radius: 100%;
   overflow: hidden;
 }
-article#presentation-logement > div div#context-logement div#identification-review-logement div#proprietaire-logement div img {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div > img {
   width: 100%;
   height: 100%;
 }
-article#presentation-logement > div div#context-logement div#identification-review-logement div#review-logement {
+main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div#housing-reviews {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
 }
-article#presentation-logement > div div#information-logement {
+main div#display-others-informations {
   display: flex;
   flex-direction: row;
   gap: 60px;
   align-items: flex-start;
 }
-article#presentation-logement > div div#information-logement * {
+main div#display-others-informations * {
   color: white;
 }
-article#presentation-logement > div div#information-logement .box-information {
+main div#display-others-informations .box-information {
   background-color: #FF6060;
-  border-radius: 15px;
+  border-radius: 10px;
   padding: 15px;
   width: 50%;
+  cursor: pointer;
 }
-article#presentation-logement > div div#information-logement .box-information > div:first-child {
+main div#display-others-informations .box-information > div:first-child {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-article#presentation-logement > div div#information-logement .box-information > *:nth-child(2) {
+main div#display-others-informations .box-information > *:nth-child(2) {
   margin-top: 15px;
 }
 
 footer#footer {
   background-color: black;
-  padding: 30px 60px 15px 60px;
+  padding: 30px 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 30px;
 }
-footer#footer img {
-  height: 30px;
-}
-footer#footer p {
+footer#footer * {
   color: white;
+}
+footer#footer img {
+  height: 25px;
 }
 
 @media (max-width: 1023px) {
@@ -263,31 +260,34 @@ footer#footer p {
   div#root > * {
     padding: 0 15px;
   }
-  header#header {
+  div#root > header#header {
     gap: 30px;
     padding: 15px;
   }
-  header#header img {
+  div#root > header#header img {
     height: 30px;
   }
-  .first-banniere {
+  div#root main > .first-banner {
     display: flex;
     align-items: center;
     justify-content: flex-start;
   }
-  .first-banniere img {
-    height: 115px;
+  div#root main > .first-banner > img {
+    height: 150px;
   }
-  .first-banniere h1 {
+  div#root main > .first-banner > h1 {
     font-size: 1.5rem;
     padding: 0 15% 0 5%;
   }
-  section.housing-cards {
+  div#root main > section.housing-cards {
     grid-template-columns: 1fr;
     padding: 0;
     background-color: initial;
   }
-  article#presentation-logement div :first-child {
+  div#root main > article#presentation-logement {
+    gap: 30px;
+  }
+  div#root main > article#presentation-logement > div#carrousel-pictures {
     aspect-ratio: 1/1;
     -o-object-fit: cover;
        object-fit: cover;
@@ -296,15 +296,7 @@ footer#footer p {
     width: initial;
     min-height: initial;
   }
-  article#presentation-logement div :first-child img {
-    width: 100%;
-    height: 100%;
-    -o-object-fit: cover;
-       object-fit: cover;
-    -o-object-position: center;
-       object-position: center;
-  }
-  article#presentation-logement div :first-child div {
+  div#root main > article#presentation-logement > div#carrousel-pictures > div:nth-child(1) {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -314,26 +306,59 @@ footer#footer p {
     padding: 0 15px;
     box-sizing: border-box;
   }
-  article#presentation-logement div :first-child div i {
+  div#root main > article#presentation-logement > div#carrousel-pictures > div:nth-child(1) i {
     color: white;
-    font-size: 50px;
+    font-size: 33px;
   }
-  article#presentation-logement > div div#context-logement {
+  div#root main > article#presentation-logement > div#carrousel-pictures img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+  }
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) {
     flex-direction: column;
     align-items: flex-start;
     gap: 10px;
   }
-  article#presentation-logement > div div#context-logement div#identifiants-logement div#boutons-logements {
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div {
+    flex-direction: column;
+    width: 100%;
+  }
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div > div {
     flex-direction: column;
   }
-  article#presentation-logement > div div#information-logement {
-    flex-direction: column;
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) {
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
   }
-  footer#footer {
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
+    flex-direction: row;
+  }
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) div {
+    width: 40px;
+    height: 40px;
+  }
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div#housing-reviews {
+    gap: 5px;
+  }
+  div#root main > article#presentation-logement > div#informations-logement div#display-others-informations {
+    flex-direction: column;
+    gap: 30px;
+  }
+  div#root main > article#presentation-logement > div#informations-logement div#display-others-informations > .box-information {
+    width: calc(100% - 30px);
+  }
+  div#root footer#footer {
     padding: 40px 80px;
     gap: 15px;
   }
-  footer#footer p {
+  div#root footer#footer > p {
     text-align: center;
   }
 }/*# sourceMappingURL=index.css.map */
