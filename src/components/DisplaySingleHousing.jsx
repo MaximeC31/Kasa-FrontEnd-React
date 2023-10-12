@@ -73,8 +73,17 @@ function DisplaySingleHousing() {
 					</div>
 				</div>
 				<div id="display-others-informations">
-					<CollapseCard title="Description" body={filteredLogement.description} />
-					<CollapseCard title="Équipements" body={filteredLogement.equipments} />
+					<CollapseCard title="Description" body={<p>{filteredLogement.description}</p>} />
+					<CollapseCard
+						title="Équipements"
+						body={
+							<ul>
+								{filteredLogement.equipments.map((equipment, index) => (
+									<li key={index}>{equipment}</li>
+								))}
+							</ul>
+						}
+					/>
 				</div>
 			</div>
 		</article>

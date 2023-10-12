@@ -1,33 +1,34 @@
 import React, { useState } from "react";
 
-function CollapseCard({ title, body: initialBody }) {
-	const [descriptionVisible, setDescriptionVisible] = useState(false);
-	const [bodyContent, setBodyContent] = useState(null);
+function CollapseCard({ title, body }) {
+	const [isVisible, setIsVisible] = useState(false);
 
-	const toggleDescription = () => {
-		setDescriptionVisible(!descriptionVisible);
-		if (!descriptionVisible) {
-			setBodyContent(initialBody);
+	const toggleVisibility = () => {
+		if (isVisible === false) {
+			setIsVisible(true);
 		} else {
-			setBodyContent(null);
+			setIsVisible(false);
 		}
 	};
 
-	let chevronDescriptionClassName;
-	if (descriptionVisible === true) {
-		chevronDescriptionClassName = "fa-chevron-up";
+	let content;
+	let chevronClassName;
+	if (isVisible === true) {
+		chevronClassName = "fa-chevron-up";
+		content = body;
 	} else {
-		chevronDescriptionClassName = "fa-chevron-down";
+		chevronClassName = "fa-chevron-down";
+		content = null;
 	}
 
 	return (
 		<>
 			<div className="box-information">
-				<div onClick={toggleDescription}>
+				<div onClick={toggleVisibility}>
 					<p>{title}</p>
-					<i className={`fa-solid ${chevronDescriptionClassName}`}></i>
+					<i className={`fa-solid ${chevronClassName}`}></i>
 				</div>
-				{bodyContent}
+				{content}
 			</div>
 		</>
 	);
