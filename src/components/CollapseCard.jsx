@@ -1,36 +1,54 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 function CollapseCard({ title, body }) {
 	const [isVisible, setIsVisible] = useState(false);
+	const boxTextRef = useRef(0);
 
 	const toggleVisibility = () => {
-		if (isVisible === false) {
-			setIsVisible(true);
-		} else {
-			setIsVisible(false);
-		}
+		setIsVisible(!isVisible);
 	};
 
-	let content;
-	let chevronClassName;
-	if (isVisible === true) {
-		chevronClassName = "fa-chevron-up";
-		content = body;
+	useEffect(() => {
+		const handleResize = () => {
+			if (isVisible && boxTextRef.current) {
+				boxTextRef.current.style.height = "auto";
+			}
+		};
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	});
+
+	let chevronClass;
+	let boxStyles;
+	let boxHeight = boxTextRef.current.scrollHeight + 60;
+
+	if (isVisible) {
+		chevronClass = "fa-solid fa-chevron-down";
+		boxStyles = {
+			height: boxHeight,
+			padding: "30px 15px",
+			opacity: "1"
+		};
 	} else {
-		chevronClassName = "fa-chevron-down";
-		content = null;
+		chevronClass = "fa-solid fa-chevron-up";
+		boxStyles = {
+			height: "0px",
+			padding: "0px 15px",
+		};
 	}
 
 	return (
-		<>
-			<div className="box-information">
-				<div onClick={toggleVisibility}>
-					<p>{title}</p>
-					<i className={`fa-solid ${chevronClassName}`}></i>
-				</div>
-				{content}
+		<div className="box-information">
+			<div onClick={toggleVisibility}>
+				<p>{title}</p>
+				<i className={chevronClass}></i>
 			</div>
-		</>
+			<div className="box-text" style={boxStyles} ref={boxTextRef}>
+				{body}
+			</div>
+		</div>
 	);
 }
 

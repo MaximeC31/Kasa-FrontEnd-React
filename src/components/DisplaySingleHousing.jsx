@@ -4,15 +4,15 @@ import HousingJSON from "../assets/data/housing.json";
 import CollapseCard from "./CollapseCard";
 
 function DisplaySingleHousing() {
-	// find corresponding id
+	// find corresponding housing
 	let { logementId } = useParams();
-	const filteredLogement = HousingJSON.find((maison) => maison.id === `${logementId}`);
+	const filteredHousing = HousingJSON.find((maison) => maison.id === `${logementId}`);
 
 	// Change carrousel pictures
 	const [index, setIndex] = useState(0);
 
 	const nextImage = () => {
-		if (index === filteredLogement.pictures.length - 1) {
+		if (index === filteredHousing.pictures.length - 1) {
 			setIndex(0);
 		} else {
 			setIndex(index + 1);
@@ -21,14 +21,14 @@ function DisplaySingleHousing() {
 
 	const previousImage = () => {
 		if (index === 0) {
-			setIndex(filteredLogement.pictures.length - 1);
+			setIndex(filteredHousing.pictures.length - 1);
 		} else {
 			setIndex(index - 1);
 		}
 	};
 
 	// Insert housing reviews
-	const positiveReview = filteredLogement.rating;
+	const positiveReview = filteredHousing.rating;
 
 	const insertReviews = () => {
 		const stars = [];
@@ -49,36 +49,36 @@ function DisplaySingleHousing() {
 					<i className="fa-solid fa-chevron-left" onClick={previousImage}></i>
 					<i className="fa-solid fa-chevron-right" onClick={nextImage}></i>
 				</div>
-				<img src={filteredLogement.pictures[index]} alt={filteredLogement.description} />
+				<img src={filteredHousing.pictures[index]} alt={filteredHousing.description} />
 			</div>
 			<div id="informations-logement">
 				<div>
 					<div>
-						<h2>{filteredLogement.title}</h2>
-						<p>{filteredLogement.location}</p>
+						<h2>{filteredHousing.title}</h2>
+						<p>{filteredHousing.location}</p>
 						<div>
-							{filteredLogement.tags.map((tag, index) => (
+							{filteredHousing.tags.map((tag, index) => (
 								<button key={index}>{tag}</button>
 							))}
 						</div>
 					</div>
 					<div>
 						<div>
-							<p>{filteredLogement.host.name}</p>
+							<p>{filteredHousing.host.name}</p>
 							<div>
-								<img src={filteredLogement.host.picture} alt={filteredLogement.host.name} />
+								<img src={filteredHousing.host.picture} alt={filteredHousing.host.name} />
 							</div>
 						</div>
 						<div id="housing-reviews">{insertReviews()}</div>
 					</div>
 				</div>
 				<div id="display-others-informations">
-					<CollapseCard title="Description" body={<p>{filteredLogement.description}</p>} />
+					<CollapseCard title="Description" body={<p>{filteredHousing.description}</p>} />
 					<CollapseCard
 						title="Équipements"
 						body={
 							<ul>
-								{filteredLogement.equipments.map((equipment, index) => (
+								{filteredHousing.equipments.map((equipment, index) => (
 									<li key={index}>{equipment}</li>
 								))}
 							</ul>

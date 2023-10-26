@@ -4,6 +4,7 @@
   font-size: 1rem;
   color: #FF6060;
   margin: 0;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -72,7 +73,7 @@ main > .first-banner > img {
   border-radius: 15px;
   -o-object-fit: cover;
      object-fit: cover;
-  filter: brightness(0.5);
+  filter: brightness(0.75);
 }
 main > .first-banner > h1 {
   color: white;
@@ -154,7 +155,7 @@ main article#presentation-logement > div#carrousel-pictures > div .fa-chevron-ri
 main article#presentation-logement > div#informations-logement {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
 }
 main article#presentation-logement > div#informations-logement > div:nth-child(1) {
   display: flex;
@@ -165,7 +166,7 @@ main article#presentation-logement > div#informations-logement > div:nth-child(1
 main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) > h2 {
   font-size: 1.5rem;
@@ -173,7 +174,7 @@ main article#presentation-logement > div#informations-logement > div:nth-child(1
 main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) > div {
   display: flex;
   flex-direction: row;
-  gap: 15px;
+  gap: 30px;
 }
 main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(1) > div > button {
   background-color: #FF6060;
@@ -185,13 +186,13 @@ main article#presentation-logement > div#informations-logement > div:nth-child(1
 main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 30px;
 }
 main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 15px;
+  gap: 30px;
 }
 main article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div {
   width: 65px;
@@ -210,29 +211,55 @@ main article#presentation-logement > div#informations-logement > div:nth-child(1
   align-items: center;
 }
 main div#display-others-informations {
+  gap: 60px;
   display: flex;
   flex-direction: row;
-  gap: 60px;
-  align-items: flex-start;
 }
-main div#display-others-informations * {
+main .box-information {
+  border-radius: 10px;
+  width: 100%;
+  position: relative;
+}
+main .box-information * {
   color: white;
 }
-main div#display-others-informations .box-information {
-  background-color: #FF6060;
-  border-radius: 10px;
-  padding: 15px;
-  width: 50%;
-  cursor: pointer;
-}
-main div#display-others-informations .box-information > div:first-child {
+main .box-information > div:first-child {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background-color: #FF6060;
+  padding: 15px;
+  border-radius: 10px;
+  cursor: pointer;
 }
-main div#display-others-informations .box-information > *:nth-child(2) {
-  margin-top: 15px;
+main .box-information > *:nth-child(2) {
+  background: #F6F6F6;
+  color: #FF6060;
+  border-radius: 10px;
+  transition: all 1s;
+  width: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+main .box-information > *:nth-child(2) * {
+  color: #FF6060;
+}
+main .box-information > *:nth-child(2) > ul {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 0;
+  list-style: none;
+}
+main div#display-about-info {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: flex-start;
+}
+main div#display-about-info .box-information {
+  width: 100%;
 }
 
 footer#footer {
@@ -321,7 +348,7 @@ footer#footer img {
   div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: 30px;
   }
   div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div {
     flex-direction: column;
@@ -329,6 +356,7 @@ footer#footer img {
   }
   div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div > div {
     flex-direction: column;
+    gap: 10px;
   }
   div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) {
     display: flex;
@@ -344,15 +372,18 @@ footer#footer img {
     width: 40px;
     height: 40px;
   }
-  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div#housing-reviews {
+  div#root main > article#presentation-logement > div#informations-logement > div:nth-child(1) > div:nth-child(2) > div#housing-reviews {
     gap: 5px;
   }
-  div#root main > article#presentation-logement > div#informations-logement div#display-others-informations {
+  div#root main div#display-others-informations,
+  div#root main div#display-about-info {
     flex-direction: column;
+    gap: 15px;
     gap: 30px;
   }
-  div#root main > article#presentation-logement > div#informations-logement div#display-others-informations > .box-information {
-    width: calc(100% - 30px);
+  div#root main div#display-others-informations > .box-information,
+  div#root main div#display-about-info > .box-information {
+    width: 100%;
   }
   div#root footer#footer {
     padding: 40px 80px;

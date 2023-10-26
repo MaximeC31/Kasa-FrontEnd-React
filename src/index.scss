@@ -1,10 +1,16 @@
 // ---------- DESKTOP CONTENT ----------
+$main-color: #FF6060;
+$hight-gap: 60px;
+$gap: 30px;
+$little-gap: 15px;
+
 * {
   font-family: "Montserrat";
   font-weight: 400;
   font-size: 1rem;
-  color: #FF6060;
+  color: $main-color;
   margin: 0;
+  box-sizing: border-box;
 }
 
 h1 {
@@ -31,10 +37,10 @@ a {
 div#root {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: $hight-gap;
 
   >* {
-    padding: 0 60px;
+    padding: 0 $hight-gap;
   }
 }
 
@@ -44,7 +50,7 @@ header#header {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 15px 60px;
+  padding: 15px $hight-gap;
 
   img {
     height: 50px;
@@ -53,7 +59,7 @@ header#header {
   nav ul {
     display: flex;
     flex-direction: row;
-    gap: 30px;
+    gap: $gap;
     padding: 0;
 
     li {
@@ -66,7 +72,7 @@ header#header {
 main {
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: $hight-gap;
 
   >.first-banner {
     display: flex;
@@ -79,7 +85,7 @@ main {
       width: 100%;
       border-radius: 15px;
       object-fit: cover;
-      filter: brightness(0.5);
+      filter: brightness(0.75);
     }
 
     >h1 {
@@ -94,8 +100,8 @@ main {
     display: grid;
     grid-auto-flow: row;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 30px;
-    padding: 30px;
+    grid-gap: $gap;
+    padding: $gap;
 
     >a {
       display: flex;
@@ -131,7 +137,7 @@ main {
   article#presentation-logement {
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: $hight-gap;
 
     >div#carrousel-pictures {
       width: 100%;
@@ -169,7 +175,7 @@ main {
     >div#informations-logement {
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      gap: $gap;
 
       >div:nth-child(1) {
         display: flex;
@@ -180,7 +186,7 @@ main {
         >div:nth-child(1) {
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: $little-gap;
 
           >h2 {
             font-size: 1.5rem;
@@ -189,10 +195,10 @@ main {
           >div {
             display: flex;
             flex-direction: row;
-            gap: 15px;
+            gap: $gap;
 
             >button {
-              background-color: #FF6060;
+              background-color: $main-color;
               color: white;
               border: none;
               padding: 5px 20px;
@@ -204,13 +210,13 @@ main {
         >div:nth-child(2) {
           display: flex;
           flex-direction: column;
-          gap: 15px;
+          gap: $gap;
 
           >div:nth-child(1) {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 15px;
+            gap: $gap;
 
             >div {
               width: 65px;
@@ -237,32 +243,62 @@ main {
   }
 
   div#display-others-informations {
+    gap: $hight-gap;
     display: flex;
     flex-direction: row;
-    gap: 60px;
-    align-items: flex-start;
+  }
+
+  .box-information {
+    border-radius: 10px;
+    width: 100%;
+    position: relative;
 
     * {
       color: white;
     }
 
-    .box-information {
+    >div:first-child {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
       background-color: #FF6060;
-      border-radius: 10px;
       padding: 15px;
-      width: 50%;
+      border-radius: 10px;
       cursor: pointer;
+    }
 
-      >div:first-child {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
+    >*:nth-child(2) {
+      background: #F6F6F6;
+      color: #FF6060;
+      border-radius: 10px;
+      transition: all 1s;
+			width: 100%;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
 
-      >*:nth-child(2) {
-        margin-top: 15px;
-      }
+    >*:nth-child(2) * {
+      color: $main-color;
+    }
+
+    >*:nth-child(2) > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      padding: 0;
+      list-style: none;
+    }
+  }
+
+  div#display-about-info {
+    display: flex;
+    flex-direction: column;
+    gap: $hight-gap;
+    align-items: flex-start;
+
+    .box-information {
+      width: 100%;
     }
   }
 }
@@ -270,11 +306,11 @@ main {
 // ---------- footer ----------
 footer#footer {
   background-color: black;
-  padding: 30px 60px;
+  padding: $gap $hight-gap;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 30px;
+  gap: $gap;
 
   * {
     color: white;
@@ -285,6 +321,10 @@ footer#footer {
   }
 }
 
+
+
+
+
 // ---------- RESPONSIVE CONTENT ----------
 @media (max-width: 1023px) {
   h1 {
@@ -292,7 +332,7 @@ footer#footer {
   }
 
   div#root {
-    gap: 30px;
+    gap: $gap;
 
     >* {
       padding: 0 15px;
@@ -301,11 +341,11 @@ footer#footer {
 
     // ---------- header ----------
     >header#header {
-      gap: 30px;
+      gap: $gap;
       padding: 15px;
 
       img {
-        height: 30px;
+        height: $gap;
       }
     }
 
@@ -333,7 +373,7 @@ footer#footer {
       }
 
       >article#presentation-logement {
-        gap: 30px;
+        gap: $gap;
 
         >div#carrousel-pictures {
           aspect-ratio: 1/1;
@@ -370,7 +410,7 @@ footer#footer {
           >div:nth-child(1) {
             flex-direction: column;
             align-items: flex-start;
-            gap: 10px;
+            gap: $gap;
 
             >div {
               flex-direction: column;
@@ -378,6 +418,7 @@ footer#footer {
 
               >div {
                 flex-direction: column;
+                gap: 10px;
               }
             }
 
@@ -395,22 +436,24 @@ footer#footer {
                   width: 40px;
                   height: 40px;
                 }
+              }
 
-                >div#housing-reviews {
-                  gap: 5px;
-                }
+              >div#housing-reviews {
+                gap: 5px;
               }
             }
           }
+        }
+      }
 
-          div#display-others-informations {
-            flex-direction: column;
-            gap: 30px;
+      div#display-others-informations,
+      div#display-about-info {
+        flex-direction: column;
+        gap: $little-gap;
+        gap: $gap;
 
-            >.box-information {
-              width: calc(100% - 30px);
-            }
-          }
+        >.box-information {
+          width: 100%;
         }
       }
     }
@@ -418,7 +461,7 @@ footer#footer {
     // ---------- footer ----------
     footer#footer {
       padding: 40px 80px;
-      gap: 15px;
+      gap: $little-gap;
 
       >p {
         text-align: center;
