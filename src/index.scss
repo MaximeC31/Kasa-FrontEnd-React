@@ -273,7 +273,7 @@ main {
       color: #FF6060;
       border-radius: 10px;
       transition: all 1s;
-			width: 100%;
+      width: 100%;
       overflow: hidden;
       box-sizing: border-box;
     }
@@ -282,7 +282,7 @@ main {
       color: $main-color;
     }
 
-    >*:nth-child(2) > ul {
+    >*:nth-child(2)>ul {
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -299,6 +299,27 @@ main {
 
     .box-information {
       width: 100%;
+    }
+  }
+
+  .not-found {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    align-items: center;
+
+    h1 {
+      font-weight: 600;
+      font-size: 15rem;
+    }
+
+    p {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+
+    a {
+      text-decoration: underline;
     }
   }
 }
@@ -455,6 +476,20 @@ footer#footer {
         >.box-information {
           width: 100%;
         }
+      }
+
+      .not-found {
+
+        h1 {
+          font-weight: 600;
+          font-size: 8rem;
+        }
+
+        p {
+          font-size: 1rem;
+          text-align: center;
+        }
+
       }
     }
 

@@ -261,6 +261,23 @@ main div#display-about-info {
 main div#display-about-info .box-information {
   width: 100%;
 }
+main .not-found {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+}
+main .not-found h1 {
+  font-weight: 600;
+  font-size: 15rem;
+}
+main .not-found p {
+  font-size: 2rem;
+  font-weight: 500;
+}
+main .not-found a {
+  text-decoration: underline;
+}
 
 footer#footer {
   background-color: black;
@@ -384,6 +401,14 @@ footer#footer img {
   div#root main div#display-others-informations > .box-information,
   div#root main div#display-about-info > .box-information {
     width: 100%;
+  }
+  div#root main .not-found h1 {
+    font-weight: 600;
+    font-size: 8rem;
+  }
+  div#root main .not-found p {
+    font-size: 1rem;
+    text-align: center;
   }
   div#root footer#footer {
     padding: 40px 80px;

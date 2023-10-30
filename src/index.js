@@ -15,11 +15,11 @@ const baseURL = "/fiche-logement/";
 
 const router = createBrowserRouter([
 	{
+		path: "/",
 		element: <Layout />,
-		errorElement: <NotFound />,
 		children: [
 			{
-				path: "/",
+				index: true,
 				element: <AllHousing baseURL={baseURL} />,
 			},
 			{
@@ -29,6 +29,14 @@ const router = createBrowserRouter([
 			{
 				path: "/a-propos",
 				element: <About />,
+			},
+			{
+				path: "/404-not-found",
+				element: <NotFound />,
+			},
+			{
+				path: "*",
+				element: <NotFound />
 			},
 		],
 	},
