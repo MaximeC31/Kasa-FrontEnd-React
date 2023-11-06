@@ -14,11 +14,13 @@ function CollapseCard({ title, body }) {
 				boxTextRef.current.style.height = "auto";
 			}
 		};
+	
 		window.addEventListener("resize", handleResize);
+	
 		return () => {
 			window.removeEventListener("resize", handleResize);
 		};
-	});
+	}, [isVisible, boxTextRef]);
 
 	let chevronClass;
 	let boxStyles;

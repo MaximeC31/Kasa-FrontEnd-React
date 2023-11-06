@@ -31,10 +31,6 @@ const router = createBrowserRouter([
 				element: <About />,
 			},
 			{
-				path: "/404-not-found",
-				element: <NotFound />,
-			},
-			{
 				path: "*",
 				element: <NotFound />
 			},

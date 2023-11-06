@@ -11,6 +11,14 @@ function DisplaySingleHousing() {
   // Changer les images du carrousel
   const [index, setIndex] = useState(0);
 
+  let displayChevron;
+  if (filteredHousing.pictures.length === 1) {
+    displayChevron = "none";
+  } else {
+    displayChevron = "block";
+
+  };
+
   const nextImage = () => {
     if (index === filteredHousing.pictures.length - 1) {
       setIndex(0);
@@ -48,8 +56,8 @@ function DisplaySingleHousing() {
     <article id="presentation-logement">
       <div id="carrousel-pictures">
         <div>
-          <i className="fa-solid fa-chevron-left" onClick={previousImage}></i>
-          <i className="fa-solid fa-chevron-right" onClick={nextImage}></i>
+          {<i className="fa-solid fa-chevron-left" onClick={previousImage} style={{display: displayChevron}}></i>}
+          {<i className="fa-solid fa-chevron-right" onClick={nextImage} style={{display: displayChevron}}></i>}
         </div>
         <img src={filteredHousing.pictures[index]} alt={filteredHousing.description} />
       </div>
